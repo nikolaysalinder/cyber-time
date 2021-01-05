@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="./favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- main css file -->
+    <link rel="stylesheet" href="css/main.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+    <title>Cyber Time</title>
+  </head>
+  <body>
+    <div class="app" id="app">
+      <div class="app__container">
+        <nav class="nav">
+          <div class="nav__item">
+            <a @click="openAbout(0)" href="#" class="nav__item-link">About</a>
+          </div>
+          <div class="nav__item">
+            <a @click="openFantasy(1)" href="#" class="nav__item-link"
+              >Fantasy league</a
+            >
+          </div>
+          <div class="nav__item">
+            <a @click="openNTFS(2)" href="#" class="nav__item-link"
+              >Ntfs collection</a
+            >
+          </div>
+          <div class="nav__item">
+            <a @click="openAccelerator(3)" href="#" class="nav__item-link"
+              >Accelerator & fund</a
+            >
+          </div>
+          <div class="nav__item">
+            <a href="#" class="nav__item-link">Roadmap</a>
+          </div>
+        </nav>
+        <div class="logo">
+          <div class="logo__sun">
+            <h1 class="logo__title">Cyber time</h1>
+          </div>
+          <img
+            src="./assets/img/mountains.png"
+            alt=""
+            class="logo__mountains"
+          />
+        </div>
+        <div class="media">
+          <a href="#" class="media__item media__item--one"></a>
+          <a href="#" class="media__item media__item--two"></a>
+          <a href="#" class="media__item media__item--three"></a>
+          <a href="#" class="media__item media__item--four"></a>
+          <a href="#" class="media__item media__item--five"></a>
+          <a href="#" class="media__item media__item--six"></a>
+          <a href="#" class="media__item media__item--seven"></a>
+        </div>
+        <div class="copy">
+          <a href="#" class="copy__item">Disclaimer</a>
+          <a href="#" class="copy__item">Privacy Policy</a>
+          <a href="#" class="copy__item">Terms of Service</a>
+        </div>
+      </div>
+      <modal
+        :modal-title="modalTitle"
+        :is-coming-soon="isComingSoon"
+        v-if="showAbout"
+        @close="showAbout = false"
+      >
+        <div slot="body">
+          <p>CyberTime Finance is a DeFi ecosystem. We create:</p>
+          <ul class="about__items">
+            <li class="about__item">- Crypto Art Fantasy League ($ CAFL)</li>
+            <li class="about__item">- Exclusive NFTs Collection</li>
+            <li class="about__item">
+              - Accelerator for talent development and new product launches
+            </li>
+          </ul>
+        </div>
+      </modal>
+      <modal
+        :modal-title="modalTitle"
+        :is-coming-soon="isComingSoon"
+        v-if="showFantasy"
+        @close="showFantasy = false"
+      >
+        <div slot="body">
+          <p>
+            The Crypto Art Fantasy League ($ CAFL) is the world's first Art
+            Fantasy League. Choose your favorite crypto artists, paintings and
+            follow the voting. In the end, win valuable prizes!
+          </p>
+
+          <p>
+            Crypto Artists participate in monthly competitions. Income is formed
+            from paid voting - 95% goes to the author and sales at 24-hour
+            auctions.
+          </p>
+
+          <p>
+            Based on the created platform, we plan to create and sell the FLaS
+            (Fantasy League as a Service) platform, where everyone can create
+            their own fantasy league
+          </p>
+        </div>
+      </modal>
+      <modal
+        :modal-title="modalTitle"
+        :is-coming-soon="isComingSoon"
+        v-if="showNTFS"
+        @close="showNTFS = false"
+      >
+        <div slot="body">
+          <p>
+            Unique collection of CyberTime, which consists of 86.400 NFT. Each
+            minute is unique and belongs to a specific author. A collection that
+            is created in front of the community. 1,440 unique paintings, each
+            with its own style and charisma
+          </p>
+        </div>
+      </modal>
+      <modal
+        :modal-title="modalTitle"
+        :is-coming-soon="isComingSoon"
+        v-if="showAccelerator"
+        @close="showAccelerator = false"
+      >
+        <div slot="body">
+          <p>
+            Part of the income from all projects goes to the buyback of CFT
+            management tokens. They form the CyberTime Foundation. Within the
+            framework of the fund, accelerators will be held to develop talents
+            in the field of NFT, DeFi, Blockchain Games, Virtual Worlds etc. New
+            projects will be created within the CyberTime ecosystem or
+            independently, but most importantly, part of the income will go
+            towards the buyback of CFT.
+          </p>
+        </div>
+      </modal>
+    </div>
+    <!-- /.app -->
+
+    <script type="text/x-template" id="modal-template">
+      <transition name="modal">
+        <div class="modal__mask">
+          <div class="modal__wrapper">
+            <div class="modal__container">
+
+              <div class="modal__header">
+
+                  <h2 class="modal__title">{{ modalTitle }}</h2>
+                  <p v-if="isComingSoon" class="modal__subtitle">Coming soon</p>
+
+              </div>
+
+              <div class="modal__body">
+                <slot name="body">
+                  modal__default__button body
+                </slot>
+              </div>
+
+              <a href="#" class="modal__close" @click="$emit('close')">
+                    close
+              </a>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </script>
+
+    <script>
+      // register modal component
+      Vue.component("modal", {
+        template: "#modal-template",
+        props: ["modalTitle", "isComingSoon"],
+      });
+
+      // start app
+      new Vue({
+        el: "#app",
+        data: {
+          showFantasy: false,
+          showAbout: false,
+          showNTFS: false,
+          showAccelerator: false,
+          modalTitle: "",
+          isComingSoon: false,
+          pages: [
+            { title: "About", isComingSoon: false },
+            { title: "Fantasy league", isComingSoon: true },
+            { title: "NFTS Collection", isComingSoon: true },
+            { title: "Accelerator & Fund", isComingSoon: true },
+          ],
+        },
+        methods: {
+          openAbout(index) {
+            this.showAbout = true;
+            this.modalTitle = this.pages[index].title;
+            this.isComingSoon = this.pages[index].isComingSoon;
+          },
+          openFantasy(index) {
+            this.showFantasy = true;
+            this.modalTitle = this.pages[index].title;
+            this.isComingSoon = this.pages[index].isComingSoon;
+          },
+          openNTFS(index) {
+            this.showNTFS = true;
+            this.modalTitle = this.pages[index].title;
+            this.isComingSoon = this.pages[index].isComingSoon;
+          },
+          openAccelerator(index) {
+            this.showAccelerator = true;
+            this.modalTitle = this.pages[index].title;
+            this.isComingSoon = this.pages[index].isComingSoon;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

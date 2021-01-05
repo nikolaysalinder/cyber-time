@@ -1,0 +1,340 @@
+/* Here you can write  your scss code */
+@import "_normalize.scss";
+
+body {
+	background: #2b1e3b;
+}
+
+.app {
+	background: #2b1e3b;
+	height: 100vh;
+	color: #fff;
+	box-sizing: border-box;
+	padding-top: 76px;
+	position: relative;
+	min-width: 1200px;
+	overflow: hidden;
+	&__container {
+		width: 1200px;
+		height: calc(100vh - 76px);
+		padding: 10px;
+		box-sizing: border-box;
+		margin: 0 auto;
+		position: relative;
+	}
+}
+.nav {
+	display: flex;
+	width: 440px;
+	flex-direction: column;
+	&__item {
+		margin-bottom: 29px;
+	}
+	&__item-link {
+		color: #a9a4af;
+		font-size: 22px;
+		font-weight: normal;
+		line-height: 33px;
+		text-transform: uppercase;
+		text-decoration: none;
+		position: relative;
+		transition: color 0.4s ease-in;
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			bottom: -3px;
+			width: 0%;
+			height: 2px;
+			background: #a9a4af;
+			transition: all 0.4s ease-in;
+		}
+		&:hover {
+			color: #fff;
+			&:before {
+				width: 100%;
+				background: #fff;
+			}
+		}
+	}
+}
+.logo {
+	position: absolute;
+	box-sizing: border-box;
+	padding: 10px;
+	width: 700px;
+	height: calc(100vh - 76px);
+	top: 73px;
+	left: calc(600px - 58px);
+	&__sun {
+		border-top-left-radius: 32%;
+		border-bottom-left-radius: 41%;
+		display: block;
+		width: 726px;
+		height: 450px;
+		background-image: url("./../assets/img/sun.svg");
+		background-repeat: no-repeat;
+		background-position: 38px 38px;
+		&:hover {
+			background-image: url("./../assets/img/sun-hover.svg");
+			background-position: 0 0;
+			.logo__title {
+				color: #fff;
+				cursor: default;
+			}
+		}
+	}
+	&__mountains {
+		position: absolute;
+		top: 300px;
+		left: -850px;
+		width: 1956px;
+		height: calc(100vh - 458px);
+		min-height: 480px;
+		margin: 0 auto;
+	}
+	&__title {
+		position: absolute;
+		font-family: "Roboto", sans-serif;
+		text-transform: uppercase;
+		color: #b1acb6;
+		font-weight: bold;
+		font-size: 50px;
+		z-index: 36;
+		margin-top: 109px;
+		margin-left: 77px;
+		letter-spacing: 29px;
+	}
+}
+.media {
+	position: absolute;
+	bottom: 77px;
+	display: flex;
+	justify-content: space-between;
+	&__item {
+		border-radius: 50%;
+		border: 2px solid #d9d6dc;
+		width: 42px;
+		height: 42px;
+		margin-right: 24px;
+		&:hover {
+			border: 2px solid #fff;
+			box-shadow: 0px 0px 2px 1px rgba(255, 255, 255, 0.48);
+		}
+		&--one {
+			background: url("./../assets/img/mediaone.svg");
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			&:hover {
+				background: url("./../assets/img/mediaonewhite.svg");
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+			}
+		}
+		&--two {
+			background: url("./../assets/img/mediatwo.svg");
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			&:hover {
+				background: url("./../assets/img/mediatwowhite.svg");
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+			}
+		}
+		&--three {
+			background: url("./../assets/img/mediathree.svg");
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			&:hover {
+				background: url("./../assets/img/mediathreewhite.svg");
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+			}
+		}
+		&--four {
+			background: url("./../assets/img/mediafour.svg");
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			&:hover {
+				background: url("./../assets/img/mediafourwhite.svg");
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+			}
+		}
+		&--five {
+			background: url("./../assets/img/mediafive.svg");
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			&:hover {
+				background: url("./../assets/img/mediafivewhite.svg");
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+			}
+		}
+		&--six {
+			background: url("./../assets/img/mediasix.svg");
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			&:hover {
+				background: url("./../assets/img/mediasixwhite.svg");
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+			}
+		}
+		&--seven {
+			background: url("./../assets/img/mediaseven.svg");
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			&:hover {
+				background: url("./../assets/img/mediasevenwhite.svg");
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+			}
+		}
+	}
+}
+.copy {
+	position: absolute;
+	bottom: 30px;
+	margin-top: 30px;
+	&__item {
+		color: #a9a4af;
+		margin-right: 24px;
+		&:hover {
+			color: #fff;
+		}
+	}
+}
+.modal {
+	&__mask {
+		position: fixed;
+		z-index: 9998;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.41);
+		display: table;
+		transition: opacity 0.3s ease;
+	}
+	&__wrapper {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	&__container {
+		position: relative;
+		width: 857px;
+		margin: 0px auto;
+		background-color: #3c1a46;
+		border-radius: 2px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+		transition: all 0.3s ease;
+	}
+	&__header {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.23);
+		height: 89px;
+		box-sizing: border-box;
+		padding-top: 27px;
+	}
+	&__title {
+		font-family: "Poppins", sans-serif;
+		color: #a9a4af;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 22px;
+		line-height: 33px;
+		text-align: center;
+		color: #a9a4af;
+		margin: 0;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+	}
+	&__subtitle {
+		font-family: "Roboto", sans-serif;
+		color: rgba(169, 164, 175, 0.4);
+		text-transform: uppercase;
+		text-align: center;
+		letter-spacing: 0.16em;
+		margin-top: 0;
+	}
+	&__body {
+		padding: 34px;
+		color: #d9d6dc;
+		p {
+			margin-top: 0;
+			letter-spacing: 0.16em;
+			line-height: 137%;
+		}
+	}
+	&__close {
+		position: absolute;
+		top: 16px;
+		right: 16px;
+		display: block;
+		width: 24px;
+		height: 24px;
+		font-size: 0;
+		&:before {
+			content: "";
+			display: block;
+			width: 20px;
+			height: 2px;
+			background: #6f6f6f;
+			position: absolute;
+			top: 10px;
+			left: 2px;
+			transform: rotate(45deg);
+		}
+		&:after {
+			content: "";
+			display: block;
+			width: 20px;
+			height: 2px;
+			background: #6f6f6f;
+			position: absolute;
+			top: 10px;
+			left: 2px;
+			transform: rotate(-45deg);
+		}
+	}
+}
+.about {
+	&__items {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		letter-spacing: 0.16em;
+	}
+}
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+
+.modal-enter {
+	opacity: 0;
+}
+
+.modal-leave-active {
+	opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+@media (orientation: landscape) {
+	.app {
+		min-height: 650px;
+		overflow: none;
+		&__container {
+			min-height: 568px;
+		}
+	}
+}
