@@ -25,7 +25,9 @@
       <div class="app__container">
         <nav class="nav">
           <div class="nav__item">
-            <a @click="openAbout(0)" href="#" class="nav__item-link">About</a>
+            <a @click="openCyber(0)" href="#" class="nav__item-link"
+              >Cyber farming</a
+            >
           </div>
           <div class="nav__item">
             <a @click="openFantasy(1)" href="#" class="nav__item-link"
@@ -33,22 +35,24 @@
             >
           </div>
           <div class="nav__item">
-            <a @click="openNTFS(2)" href="#" class="nav__item-link"
-              >Ntfs collection</a
+            <a @click="openTime(2)" href="#" class="nav__item-link"
+              >Time collection</a
             >
           </div>
           <div class="nav__item">
-            <a @click="openAccelerator(3)" href="#" class="nav__item-link"
-              >Accelerator & fund</a
+            <a @click="openDao(3)" href="#" class="nav__item-link"
+              >Dao voting & fund</a
             >
           </div>
           <div class="nav__item">
-            <a href="#" class="nav__item-link">Roadmap</a>
+            <a href="https://docs.cybertime.finance/" class="nav__item-link"
+              >Docs</a
+            >
           </div>
         </nav>
         <div class="logo">
           <div class="logo__sun">
-            <h1 class="logo__title">Cyber time</h1>
+            <img class="logo__image" src="./assets/img/sun.png" alt="" />
           </div>
           <img
             src="./assets/img/mountains.png"
@@ -56,36 +60,37 @@
             class="logo__mountains"
           />
         </div>
-        <div class="media">
-          <a href="#" class="media__item media__item--one"></a>
-          <a href="#" class="media__item media__item--two"></a>
-          <a href="#" class="media__item media__item--three"></a>
-          <a href="#" class="media__item media__item--four"></a>
-          <a href="#" class="media__item media__item--five"></a>
-          <a href="#" class="media__item media__item--six"></a>
-          <a href="#" class="media__item media__item--seven"></a>
-        </div>
-        <div class="copy">
-          <a href="#" class="copy__item">Disclaimer</a>
-          <a href="#" class="copy__item">Privacy Policy</a>
-          <a href="#" class="copy__item">Terms of Service</a>
+        <div class="container__flex">
+          <div class="media">
+            <a href="#" class="media__item media__item--one"></a>
+            <a href="#" class="media__item media__item--two"></a>
+            <a href="#" class="media__item media__item--three"></a>
+            <a href="#" class="media__item media__item--four"></a>
+            <a href="#" class="media__item media__item--five"></a>
+            <a href="#" class="media__item media__item--six"></a>
+            <a href="#" class="media__item media__item--seven"></a>
+          </div>
+          <div class="copy">
+            <a href="#" class="copy__item">Disclaimer</a>
+            <a href="#" class="copy__item">Privacy Policy</a>
+            <a href="#" class="copy__item">Terms of Service</a>
+          </div>
         </div>
       </div>
       <modal
         :modal-title="modalTitle"
         :is-coming-soon="isComingSoon"
-        v-if="showAbout"
-        @close="showAbout = false"
+        v-if="showCyber"
+        @close="showCyber = false"
       >
         <div slot="body">
-          <p>CyberTime Finance is a DeFi ecosystem. We create:</p>
-          <ul class="about__items">
-            <li class="about__item">- Crypto Art Fantasy League ($ CAFL)</li>
-            <li class="about__item">- Exclusive NFTs Collection</li>
-            <li class="about__item">
-              - Accelerator for talent development and new product launches
-            </li>
-          </ul>
+          <p>
+            CyberTime Farming Week starts on February 19, where 1% of NFTL
+            tokens will be distributed among 20 pools from DAI to RARI. You just
+            need to add your tokens to the pool and get your share of NFTL. Add
+            NFTL to Uniswap Liquidity Pool and Receive CyberTime Finance
+            Management Tokens (CTF)
+          </p>
         </div>
       </modal>
       <modal
@@ -96,54 +101,83 @@
       >
         <div slot="body">
           <p>
-            The Crypto Art Fantasy League ($ CAFL) is the world's first Art
-            Fantasy League. Choose your favorite crypto artists, paintings and
-            follow the voting. In the end, win valuable prizes!
+            We are creating the first NFT League Art and a platform to launch
+            Fantasy League on the blockchain. Season 1 starts in 2021. There
+            will be 8-12 stages and a grand final at the end of the year.
+            Cryptoartists submit their works before each stage and the
+            communities within 2 weeks vote for their favorite works with the
+            native NFTL token. Before the start of voting, a Draft window opens,
+            where a participant can create his Fantasy Team from cryptoartists
+            and works presented at a particular stage. At the end of the voting,
+            a 24 hour auction is held to sell the work you like.
           </p>
 
           <p>
-            Crypto Artists participate in monthly competitions. Income is formed
-            from paid voting - 95% goes to the author and sales at 24-hour
-            auctions.
+            To support the community, we have reserved 50% of NFTL tokens as
+            rewards, which will be distributed over the next few seasons.
           </p>
 
           <p>
-            Based on the created platform, we plan to create and sell the FLaS
-            (Fantasy League as a Service) platform, where everyone can create
-            their own fantasy league
+            Development plans: <br />
+            - NFT Badges of winners and participants (secondary market) <br />
+            - NFT Crypto Artist Avatar (Aftermarket)
+          </p>
+          <p>
+            After the launch of NFTL, we plan to use the developments to create
+            Fantasy League on the blockchain in any area.
           </p>
         </div>
       </modal>
       <modal
         :modal-title="modalTitle"
         :is-coming-soon="isComingSoon"
-        v-if="showNTFS"
-        @close="showNTFS = false"
+        v-if="showTime"
+        @close="showTime = false"
       >
         <div slot="body">
           <p>
-            Unique collection of CyberTime, which consists of 86.400 NFT. Each
-            minute is unique and belongs to a specific author. A collection that
-            is created in front of the community. 1,440 unique paintings, each
-            with its own style and charisma
+            We create an exclusive NFT collection of 86,400 NFTs (seconds in 24
+            hours). This is a performance project that develops at the expense
+            of the community. We plan to work with authors, winners of NFT
+            League stages to create unique NFTs. Each author is allocated 1
+            minute = 60 seconds = 60 NFT, where he creates a unique work. It
+            will be the same on all 60 NFTs, the only difference is the changing
+            seconds. Having bought 1 NFT, a person buys 1 second from the
+            CyberTime world. The peculiarity of the project is that a native
+            token will be launched. $ SEC, which will allow the owner of the NFT
+            to make an exchange in one direction and the other at any time. This
+            will greatly increase the liquidity of the NFT.
           </p>
         </div>
       </modal>
       <modal
         :modal-title="modalTitle"
         :is-coming-soon="isComingSoon"
-        v-if="showAccelerator"
-        @close="showAccelerator = false"
+        v-if="showDao"
+        @close="showDao = false"
       >
         <div slot="body">
           <p>
-            Part of the income from all projects goes to the buyback of CFT
-            management tokens. They form the CyberTime Foundation. Within the
-            framework of the fund, accelerators will be held to develop talents
-            in the field of NFT, DeFi, Blockchain Games, Virtual Worlds etc. New
-            projects will be created within the CyberTime ecosystem or
-            independently, but most importantly, part of the income will go
-            towards the buyback of CFT.
+            We will launch a voting system on the https://snapshot.page
+            platform. Each CTF token holder can take part in the development of
+            the entire ecosystem of products.
+          </p>
+          <p>
+            Within the league, all stages will be divided into 2 directions of
+            payments: ETH & NFTL. During the ETH stage, voting, Fantasy Team
+            formation, auction sale will be for ETH. Accordingly, during the
+            NFTL stage, all calculations will be in this token. <br />
+            All income from ETH stages is distributed as follows: <br />
+            - 50% goes to the buyback of CTF tokens at the market price <br />
+            - 50% goes to the Community Development <br />
+            Fund Distributes all income from NFTL stages as follows: <br />
+            - 5% - burn out (based on initial burn rate, which can change the
+            community through voting) <br />
+            - 47.5% - goes to the buyback of NFTL tokens on the market <br />
+            - 47.5% goes to Community Development Fund <br />
+            No funds, investors, not even a team get profit from the project.
+            All finance goes to the Community Development Fund, where it is
+            already distributed by the community itself.
           </p>
         </div>
       </modal>
@@ -189,22 +223,22 @@
       new Vue({
         el: "#app",
         data: {
+          showCyber: false,
           showFantasy: false,
-          showAbout: false,
-          showNTFS: false,
-          showAccelerator: false,
+          showTime: false,
+          showDao: false,
           modalTitle: "",
           isComingSoon: false,
           pages: [
-            { title: "About", isComingSoon: false },
+            { title: "Cyber farming", isComingSoon: true },
             { title: "Fantasy league", isComingSoon: true },
-            { title: "NFTS Collection", isComingSoon: true },
-            { title: "Accelerator & Fund", isComingSoon: true },
+            { title: "Time collection", isComingSoon: true },
+            { title: "Dao voting & fund", isComingSoon: true },
           ],
         },
         methods: {
-          openAbout(index) {
-            this.showAbout = true;
+          openCyber(index) {
+            this.showCyber = true;
             this.modalTitle = this.pages[index].title;
             this.isComingSoon = this.pages[index].isComingSoon;
           },
@@ -213,13 +247,13 @@
             this.modalTitle = this.pages[index].title;
             this.isComingSoon = this.pages[index].isComingSoon;
           },
-          openNTFS(index) {
-            this.showNTFS = true;
+          openTime(index) {
+            this.showTime = true;
             this.modalTitle = this.pages[index].title;
             this.isComingSoon = this.pages[index].isComingSoon;
           },
-          openAccelerator(index) {
-            this.showAccelerator = true;
+          openDao(index) {
+            this.showDao = true;
             this.modalTitle = this.pages[index].title;
             this.isComingSoon = this.pages[index].isComingSoon;
           },
