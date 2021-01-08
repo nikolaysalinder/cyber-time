@@ -481,7 +481,6 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
-  outline: 1px solid green;
   position: absolute;
   bottom: 53px;
   z-index: 3; }
@@ -568,8 +567,8 @@ body {
   .copy__item {
     color: #a9a4af;
     margin-right: 24px;
-    -webkit-transition: color 0.3x ease;
-    transition: color 0.3x ease; }
+    -webkit-transition: color 0.3s ease;
+    transition: color 0.3s ease; }
     .copy__item:hover {
       color: #d9d6dc; }
 

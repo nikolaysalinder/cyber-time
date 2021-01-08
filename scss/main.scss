@@ -107,7 +107,6 @@ body {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-	outline: 1px solid green;
 	position: absolute;
 	bottom: 53px;
 	z-index: 3;
@@ -205,7 +204,7 @@ body {
 	&__item {
 		color: #a9a4af;
 		margin-right: 24px;
-		transition: color 0.3x ease;
+		transition: color 0.3s ease;
 		&:hover {
 			color: #d9d6dc;
 		}
