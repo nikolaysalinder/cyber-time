@@ -77,16 +77,14 @@ body {
 		top: 60px;
 		z-index: 1;
 	}
-
 	&__mountains {
 		position: absolute;
-		top: 323px;
-		left: -833px;
+		top: 310px;
+		left: -839px;
 		width: 100vw;
-		min-width: 1728px;
+		min-width: 1806px;
 		height: calc(100vh - 458px);
-		min-height: 480px;
-		margin: 0 auto;
+		min-height: 443px;
 		z-index: 2;
 	}
 	&__title {
