@@ -181,6 +181,15 @@
           </p>
         </div>
       </modal>
+      <modal-copy
+        v-if="showModalCopy"
+        @close="showModalCopy = false"
+      ></modal-copy>
+      <a @click="openModalCopy" class="burger" href="#">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </a>
     </div>
     <!-- /.app -->
 
@@ -194,15 +203,41 @@
 
                   <h2 class="modal__title">{{ modalTitle }}</h2>
                   <p v-if="isComingSoon" class="modal__subtitle">Coming soon</p>
-
+                  <a v-else :href="link" class="modal__subtitle--link">{{linkText}}</a>
               </div>
 
-              <div class="modal__body">
-                <slot name="body">
-                  modal__default__button body
-                </slot>
+              <div class="modal__body-wrapper">
+                <div class="modal__body">
+                  <slot name="body">
+                    modal__default__button body
+                  </slot>
+                </div>
               </div>
 
+              <a href="#" class="modal__close" @click="$emit('close')">
+                    close
+              </a>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </script>
+    <script type="text/x-template" id="modal-copy">
+      <transition name="modal">
+        <div class="modal__mask">
+          <div class="modal__wrapper modal__wrapper--copy">
+            <div class="modal__container modal__container--copy">
+              <ul class="modal-copy">
+                <li class="modal-copy__item">
+                  <a class="modal-copy__item-link" href="#">Disclaimer</a>
+                </li>
+                <li class="modal-copy__item">
+                  <a class="modal-copy__item-link" href="#">Privacy Policy</a>
+                </li>
+                <li class="modal-copy__item">
+                  <a class="modal-copy__item-link" href="#">Terms of Service</a>
+                </li>
+              </ul>
               <a href="#" class="modal__close" @click="$emit('close')">
                     close
               </a>
@@ -216,7 +251,12 @@
       // register modal component
       Vue.component("modal", {
         template: "#modal-template",
-        props: ["modalTitle", "isComingSoon"],
+        props: ["modalTitle", "isComingSoon", "link", "linkText"],
+      });
+
+      // register modal component
+      Vue.component("modal-copy", {
+        template: "#modal-copy",
       });
 
       // start app
@@ -227,13 +267,36 @@
           showFantasy: false,
           showTime: false,
           showDao: false,
+          showModalCopy: true,
           modalTitle: "",
           isComingSoon: false,
+          link: "",
+          linkText: "",
           pages: [
-            { title: "Cyber farming", isComingSoon: true },
-            { title: "Fantasy league", isComingSoon: true },
-            { title: "Time collection", isComingSoon: true },
-            { title: "Dao voting & fund", isComingSoon: true },
+            {
+              title: "Cyber farming",
+              isComingSoon: true,
+              link: "#",
+              linkText: "cybertime.farm",
+            },
+            {
+              title: "Fantasy league",
+              isComingSoon: true,
+              link: "#",
+              linkText: "ntfl.art",
+            },
+            {
+              title: "Time collection",
+              isComingSoon: true,
+              link: "#",
+              linkText: "cybertime.art",
+            },
+            {
+              title: "Dao voting & fund",
+              isComingSoon: true,
+              link: "#",
+              linkText: "cybertime.fund",
+            },
           ],
         },
         methods: {
@@ -241,21 +304,32 @@
             this.showCyber = true;
             this.modalTitle = this.pages[index].title;
             this.isComingSoon = this.pages[index].isComingSoon;
+            this.link = this.pages[index].link;
+            this.linkText = this.pages[index].linkText;
           },
           openFantasy(index) {
             this.showFantasy = true;
             this.modalTitle = this.pages[index].title;
             this.isComingSoon = this.pages[index].isComingSoon;
+            this.link = this.pages[index].link;
+            this.linkText = this.pages[index].linkText;
           },
           openTime(index) {
             this.showTime = true;
             this.modalTitle = this.pages[index].title;
             this.isComingSoon = this.pages[index].isComingSoon;
+            this.link = this.pages[index].link;
+            this.linkText = this.pages[index].linkText;
           },
           openDao(index) {
             this.showDao = true;
             this.modalTitle = this.pages[index].title;
             this.isComingSoon = this.pages[index].isComingSoon;
+            this.link = this.pages[index].link;
+            this.linkText = this.pages[index].linkText;
+          },
+          openModalCopy() {
+            this.showModalCopy = true;
           },
         },
       });
