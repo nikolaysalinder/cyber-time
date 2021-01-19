@@ -181,6 +181,16 @@ body {
 				background-position: 50% 50%;
 			}
 		}
+		&--eight {
+			background: url("./../assets/img/mediaeight.svg");
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			&:hover {
+				background: url("./../assets/img/mediaeightwhite.svg");
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+			}
+		}
 	}
 }
 .copy {
@@ -221,7 +231,7 @@ body {
 		&__item-link {
 			font-weight: 500;
 			font-size: 14px;
-			line-height: 137%;
+			line-height: 27px;
 			letter-spacing: 0.16em;
 			color: #d9d6dc;
 			text-decoration: none;
@@ -372,13 +382,18 @@ body {
 		right: 0;
 	}
 }
+@media screen and (max-width: 970px) {
+	.copy {
+		display: none;
+	}
+	.burger {
+		display: block;
+	}
+}
 @media screen and (max-width: 900px) {
 	.app {
 		padding-top: 56px;
 		min-height: 780px;
-	}
-	.copy {
-		display: none;
 	}
 	.nav {
 		margin-top: 280px;
@@ -401,13 +416,13 @@ body {
 			z-index: 2;
 		}
 	}
-	.modal {
-	}
-	.burger {
-		display: block;
-	}
 }
 @media screen and (max-width: 857px) {
+	.modal-copy {
+		&__item {
+			padding-left: 0;
+		}
+	}
 	.modal {
 		&__wrapper {
 			padding-left: 18px;
@@ -466,21 +481,44 @@ body {
 }
 @media screen and (max-width: 660px) {
 	.media {
+		flex-wrap: wrap;
+		width: 185px;
+		justify-content: flex-start;
 		&__item {
 			width: 27px;
 			height: 27px;
 			margin-right: 15px;
+			margin-bottom: 15px;
 			background-size: 13px 13px;
 			box-sizing: border-box;
 			border: 1px solid #d9d6dc;
+			&:hover {
+				background-size: 13px 13px;
+			}
+		}
+	}
+	.nav {
+		&__item {
+			margin-bottom: 20px;
+		}
+		&__item-link {
+			font-size: 14px;
+			line-height: 16px;
+			&:before {
+				display: none;
+			}
+			&:hover {
+				color: #a9a4af;
+			}
 		}
 	}
 }
 @media screen and (max-width: 550px) {
 	.app {
-		min-height: 568px;
+		min-height: 650px;
 		min-width: 320px;
 		height: 100vh;
+		box-sizing: border-box;
 	}
 	.logo {
 		&__image {
@@ -501,16 +539,24 @@ body {
 	}
 }
 @media screen and (max-width: 450px) {
+	.app {
+		min-height: 580px;
+	}
+	.modal-copy {
+		margin-left: 16px;
+		margin-right: unset;
+	}
 	.nav {
 		margin-top: 215px;
 	}
 	.logo {
 		&__image {
 			width: 460px;
+			right: 50px;
 		}
 		&__mountains {
 			top: 95px;
-			right: -72px;
+			right: -36px;
 			min-height: 168px;
 			min-width: 591px;
 		}

@@ -69,6 +69,10 @@
             <a href="#" class="media__item media__item--five"></a>
             <a href="#" class="media__item media__item--six"></a>
             <a href="#" class="media__item media__item--seven"></a>
+            <a
+              href="https://github.com/cybertime-eth"
+              class="media__item media__item--eight"
+            ></a>
           </div>
           <div class="copy">
             <a href="#" class="copy__item">Disclaimer</a>
@@ -80,6 +84,8 @@
       <modal
         :modal-title="modalTitle"
         :is-coming-soon="isComingSoon"
+        :link="link"
+        :link-text="linkText"
         v-if="showCyber"
         @close="showCyber = false"
       >
@@ -96,6 +102,8 @@
       <modal
         :modal-title="modalTitle"
         :is-coming-soon="isComingSoon"
+        :link="link"
+        :link-text="linkText"
         v-if="showFantasy"
         @close="showFantasy = false"
       >
@@ -131,6 +139,8 @@
       <modal
         :modal-title="modalTitle"
         :is-coming-soon="isComingSoon"
+        :link="link"
+        :link-text="linkText"
         v-if="showTime"
         @close="showTime = false"
       >
@@ -153,6 +163,8 @@
       <modal
         :modal-title="modalTitle"
         :is-coming-soon="isComingSoon"
+        :link="link"
+        :link-text="linkText"
         v-if="showDao"
         @close="showDao = false"
       >
