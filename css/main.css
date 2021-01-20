@@ -481,6 +481,9 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   z-index: 3; }
+  .media--top {
+    margin-top: 30px;
+    display: none; }
   .media__item {
     border-radius: 50%;
     border: 2px solid #d9d6dc;
@@ -808,12 +811,19 @@ body {
 
 @media screen and (max-width: 660px) {
   .media {
+    display: none;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     width: 185px;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start; }
+    .media--top {
+      position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      z-index: 2; }
     .media__item {
       width: 27px;
       height: 27px;
@@ -822,7 +832,8 @@ body {
       background-size: 13px 13px;
       -webkit-box-sizing: border-box;
               box-sizing: border-box;
-      border: 1px solid #d9d6dc; }
+      border: 1px solid #d9d6dc;
+      z-index: 2; }
       .media__item:hover {
         background-size: 13px 13px; }
   .nav__item {

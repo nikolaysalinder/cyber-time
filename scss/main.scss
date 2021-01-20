@@ -101,6 +101,10 @@ body {
 	display: flex;
 	justify-content: space-between;
 	z-index: 3;
+	&--top {
+		margin-top: 30px;
+		display: none;
+	}
 	&__item {
 		border-radius: 50%;
 		border: 2px solid #d9d6dc;
@@ -481,9 +485,15 @@ body {
 }
 @media screen and (max-width: 660px) {
 	.media {
+		display: none;
 		flex-wrap: wrap;
 		width: 185px;
 		justify-content: flex-start;
+		&--top {
+			position: relative;
+			display: flex;
+			z-index: 2;
+		}
 		&__item {
 			width: 27px;
 			height: 27px;
@@ -492,6 +502,7 @@ body {
 			background-size: 13px 13px;
 			box-sizing: border-box;
 			border: 1px solid #d9d6dc;
+			z-index: 2;
 			&:hover {
 				background-size: 13px 13px;
 			}
