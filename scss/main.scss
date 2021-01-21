@@ -199,6 +199,7 @@ body {
 }
 .copy {
 	display: flex;
+	visibility: hidden;
 	margin-top: 30px;
 	z-index: 3;
 	&__item {
@@ -337,6 +338,7 @@ body {
 
 .burger {
 	display: none;
+	visibility: hidden;
 	position: absolute;
 	top: 17px;
 	right: 18px;
